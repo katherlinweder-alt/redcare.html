@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEDERPHARMA | Redcare Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root { --rc-red: #e30613; --ice-blue: #bde4f4; }
+        body { font-family: sans-serif; margin: 0; background: #fff; }
+        .top-bar { background: var(--ice-blue); padding: 8px 40px; font-size: 12px; font-weight: bold; display: flex; justify-content: space-between; }
+        .header { padding: 20px 40px; display: flex; align-items: center; gap: 40px; border-bottom: 1px solid #eee; }
+        .logo { font-size: 26px; font-weight: 900; color: var(--rc-red); }
+        .search-box { flex-grow: 1; position: relative; max-width: 600px; }
+        .search-input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 4px; }
+        .nav-icons { display: flex; gap: 25px; }
+        .icon-item { text-align: center; font-size: 11px; font-weight: bold; color: #555; cursor: pointer; }
+        .icon-item i { font-size: 22px; display: block; margin-bottom: 4px; }
+        .product-card { border: 1px solid #eee; padding: 20px; border-radius: 8px; position: relative; transition: 0.2s; }
+        .product-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .price { color: var(--rc-red); font-size: 22px; font-weight: 900; margin-top: 10px; }
+        .add-btn { position: absolute; bottom: 20px; right: 20px; background: var(--rc-red); color: #fff; width: 40px; height: 40px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div><i class="fa-solid fa-check"></i> Gratis Versand ab 30 CHF</div>
+        <select id="lang" class="bg-transparent font-bold"><option value="de">DE</option><option value="zh">ZH</option></select>
+    </div>
+    <header class="header">
+        <div class="logo">WEDERPHARMA</div>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Suchen...">
+        </div>
+        <div class="nav-icons">
+            <div class="icon-item"><i class="fa-regular fa-user"></i><span id="t-acc">Anmelden</span></div>
+            <div class="icon-item"><i class="fa-solid fa-cart-shopping"></i><span id="t-cart">Warenkorb</span></div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto p-10">
+        <h2 class="text-xl font-bold mb-6">Bestseller</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="product-card">
+                <div class="h-40 bg-gray-100 mb-4 rounded"></div>
+                <div class="text-xs text-gray-400 font-bold">WEDER PREMIUM</div>
+                <h3 class="text-sm font-bold">Omega-3 1400mg</h3>
+                <div class="price">24.95 CHF</div>
+                <div class="add-btn">+</div>
+            </div>
+            </div>
+    </main>
+    <script>
+        const d = { zh: { acc: "账户", cart: "购物车" }, de: { acc: "Anmelden", cart: "Warenkorb" } };
+        document.getElementById('lang').onchange = (e) => {
+            const l = e.target.value;
+            document.getElementById('t-acc').innerText = d[l].acc;
+            document.getElementById('t-cart').innerText = d[l].cart;
+        };
+    </script>
+</body>
+</html>
